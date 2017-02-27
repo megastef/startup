@@ -3,7 +3,11 @@
 /**
  * Module dependencies.
  */
-
+var spmAgent = null
+if (process.env.SPM_TOKEN) {
+  spmAgent = require('spm-agent-nodejs')
+  spmAgent.on('error', console.error)
+}
 var program = require('commander');
 var utils = require('../lib/utils');
 var spawn = require('win-fork');
